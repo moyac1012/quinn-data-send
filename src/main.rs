@@ -37,14 +37,14 @@ async fn main() -> Result<()> {
         run_server(cert_der_clone, priv_key).await.unwrap();
     });
     
-    // クライアントを動かし、所要時間(ミリ秒)を表示する
-    // let start = Instant::now();
-    // run_client(cert_der, &send_data).await?;
-    // let elapsed = start.elapsed();
-    // println!(
-    //     "Elapsed time: {} ms",
-    //     elapsed.as_secs() * 1000 + elapsed.subsec_millis() as u64
-    // );
+    //クライアントを動かし、所要時間(ミリ秒)を表示する
+    let start = Instant::now();
+    run_client(cert_der, &send_data).await?;
+    let elapsed = start.elapsed();
+    println!(
+        "Elapsed time: {} ms",
+        elapsed.as_secs() * 1000 + elapsed.subsec_millis() as u64
+    );
 
     Ok(())
 }
